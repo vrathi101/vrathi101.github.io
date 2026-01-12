@@ -41,12 +41,12 @@
         <h1 class="hero-title">Vedant Rathi</h1>
 
         <p class="hero-subtitle" style="font-size: var(--text-xl); color: var(--text-secondary); margin-top: var(--space-4);">
-          CS @ <span class="gradient-text">UIUC</span>
+          CS + Math @ <span class="gradient-text">UIUC</span>
         </p>
 
         <p class="hero-tagline" style="font-size: var(--text-lg); color: var(--text-muted); margin-top: var(--space-6); max-width: 500px; text-align: center;">
-          Exploring <em style="color: var(--accent-primary); font-style: normal;">interpretability</em>,
-          <em style="color: var(--accent-secondary); font-style: normal;">reasoning models</em>, and
+          Interested in <em style="color: var(--accent-primary); font-style: normal;">interpretability</em>,
+          <em style="color: var(--accent-secondary); font-style: normal;">reasoning</em>, and
           <em style="color: var(--accent-tertiary); font-style: normal;">RL post-training</em>
         </p>
 
@@ -55,11 +55,15 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub
           </a>
+          <a href="https://scholar.google.com/citations?user=uQcf8fEAAAAJ" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Scholar
+          </a>
           <a href="mailto:vedantr3@illinois.edu" class="social-link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Email
           </a>
-          <a href="https://linkedin.com/in/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/vrathi101" class="social-link" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
           </a>
@@ -76,42 +80,63 @@
     <section id="research">
       <div class="container">
         <header class="section-header" data-animate>
-          <h2 class="section-title">Research Interests</h2>
-          <p class="section-subtitle">Understanding and improving how neural networks think</p>
+          <h2 class="section-title">Research</h2>
+          <p class="section-subtitle">Selected publications</p>
         </header>
 
         <div class="grid grid-3" data-stagger>
-          <!-- Interpretability Card -->
+          <!-- Paper 1: Breaking Bad Tokens -->
           <article class="card" data-animate>
             <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
             </div>
-            <h3 class="card-title">Interpretability</h3>
-            <p class="card-description">
-              Investigating how neural networks represent and process information internally. Understanding the mechanisms behind model behavior to build more trustworthy AI systems.
+            <h3 class="card-title">Breaking Bad Tokens</h3>
+            <p class="card-description" style="margin-bottom: var(--space-3);">
+              Detoxifying LLMs using sparse autoencoders and interpretability-driven interventions. We decompose black-box models to identify and suppress toxic features while preserving coherence.
             </p>
+            <p style="font-size: var(--text-xs); color: var(--accent-primary); font-family: var(--font-mono);">EMNLP 2025</p>
+            <div class="project-links" style="margin-top: var(--space-3);">
+              <a href="https://arxiv.org/abs/2505.14536" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Paper
+              </a>
+            </div>
           </article>
 
-          <!-- Reasoning Card -->
+          <!-- Paper 2: Teaching Reasoning -->
           <article class="card" data-animate>
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8Z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <h3 class="card-title">Reasoning Models</h3>
-            <p class="card-description">
-              Exploring how language models perform complex reasoning tasks. Interested in chain-of-thought, planning capabilities, and the emergence of systematic problem-solving.
+            <h3 class="card-title">Teaching Reasoning to LLMs</h3>
+            <p class="card-description" style="margin-bottom: var(--space-3);">
+              Studying the challenges of inducing reasoning capabilities in language models without RL or distillation. Contributed human-authored chain-of-thought solutions for contest math problems.
             </p>
+            <p style="font-size: var(--text-xs); color: var(--accent-primary); font-family: var(--font-mono);">ICML 2025 Workshop</p>
+            <div class="project-links" style="margin-top: var(--space-3);">
+              <a href="https://arxiv.org/abs/2507.09850" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Paper
+              </a>
+            </div>
           </article>
 
-          <!-- RL Post-Training Card -->
+          <!-- Paper 3: Spam Detection -->
           <article class="card" data-animate>
             <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
-            <h3 class="card-title">RL Post-Training</h3>
-            <p class="card-description">
-              Studying reinforcement learning techniques for fine-tuning language models. Focused on RLHF, reward modeling, and alignment methods for improving model capabilities.
+            <h3 class="card-title">Interpretable Spam Detection</h3>
+            <p class="card-description" style="margin-bottom: var(--space-3);">
+              Meta-learner framework for email spam detection that combines ensemble ML and deep learning techniques. Evaluated on 50,000+ samples with strong zero-shot generalization.
             </p>
+            <p style="font-size: var(--text-xs); color: var(--accent-primary); font-family: var(--font-mono);">Frontiers in AI 2025</p>
+            <div class="project-links" style="margin-top: var(--space-3);">
+              <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1569804" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Paper
+              </a>
+            </div>
           </article>
         </div>
       </div>
@@ -122,98 +147,32 @@
       <div class="container">
         <header class="section-header" data-animate>
           <h2 class="section-title">Projects</h2>
-          <p class="section-subtitle">Selected work and experiments</p>
+          <p class="section-subtitle">Things I've built</p>
         </header>
 
         <div class="grid grid-2" data-stagger style="gap: var(--space-8);">
-          <!-- Project 1 -->
+          <!-- Project 1: Predictive Concept Decoders -->
           <article class="project-card" data-animate>
             <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                Project Preview
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
+                Interpretability
               </div>
               <div class="project-overlay">
-                <a href="#" class="btn btn-primary">View Project</a>
+                <a href="https://github.com/vrathi101/Predictive-Concept-Decoders" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Project Title</h3>
+              <h3 class="project-title">Predictive Concept Decoders</h3>
               <p class="project-description">
-                A brief description of what this project does, the problem it solves, and any interesting technical details worth mentioning.
+                Reproduction of Transluce AI's interpretability assistant. Trains an encoder to compress residual-stream activations into sparse concept bottlenecks, with a decoder that answers questions about model behavior.
               </p>
               <ul class="project-tech">
-                <li>Python</li>
                 <li>PyTorch</li>
-                <li>Transformers</li>
+                <li>DDP</li>
+                <li>Llama 3.2</li>
               </ul>
               <div class="project-links">
-                <a href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  Code
-                </a>
-                <a href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Demo
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="project-card" data-animate>
-            <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                Project Preview
-              </div>
-              <div class="project-overlay">
-                <a href="#" class="btn btn-primary">View Project</a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Project Title</h3>
-              <p class="project-description">
-                Another project description. Replace this with details about your actual work and what makes it interesting.
-              </p>
-              <ul class="project-tech">
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Node.js</li>
-              </ul>
-              <div class="project-links">
-                <a href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  Code
-                </a>
-                <a href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Demo
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="project-card" data-animate>
-            <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                Project Preview
-              </div>
-              <div class="project-overlay">
-                <a href="#" class="btn btn-primary">View Project</a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Project Title</h3>
-              <p class="project-description">
-                Description of your third project. Highlight the impact and technical challenges you overcame.
-              </p>
-              <ul class="project-tech">
-                <li>Python</li>
-                <li>JAX</li>
-                <li>Flax</li>
-              </ul>
-              <div class="project-links">
-                <a href="#">
+                <a href="https://github.com/vrathi101/Predictive-Concept-Decoders" target="_blank" rel="noopener noreferrer">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                   Code
                 </a>
@@ -221,33 +180,88 @@
             </div>
           </article>
 
-          <!-- Project 4 -->
+          <!-- Project 2: CycleGAN -->
           <article class="project-card" data-animate>
             <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                Project Preview
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
+                Generative
               </div>
               <div class="project-overlay">
-                <a href="#" class="btn btn-primary">View Project</a>
+                <a href="https://github.com/vrathi101/cyclegan-style-transfer" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Project Title</h3>
+              <h3 class="project-title">CycleGAN Style Transfer</h3>
               <p class="project-description">
-                Your fourth project. Explain what you built and why it matters.
+                From-scratch CycleGAN implementation for unpaired image-to-image translation. Converts photos to Monet-style paintings and back, using 6 residual blocks for faster training.
               </p>
               <ul class="project-tech">
-                <li>Rust</li>
-                <li>WASM</li>
+                <li>PyTorch</li>
+                <li>CycleGAN</li>
+                <li>ResNets</li>
               </ul>
               <div class="project-links">
-                <a href="#">
+                <a href="https://github.com/vrathi101/cyclegan-style-transfer" target="_blank" rel="noopener noreferrer">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                   Code
                 </a>
-                <a href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                  Paper
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: LyricSearch -->
+          <article class="project-card" data-animate>
+            <div class="project-image">
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
+                RAG
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/vrathi101/LyricSearch" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">LyricSearch</h3>
+              <p class="project-description">
+                AI-powered lyrics platform that generates original verses with GPT-3.5 and checks authenticity against 480K+ real songs using RAG-style semantic search with FAISS.
+              </p>
+              <ul class="project-tech">
+                <li>Flask</li>
+                <li>FAISS</li>
+                <li>OpenAI</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/vrathi101/LyricSearch" target="_blank" rel="noopener noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Gmail MCP -->
+          <article class="project-card" data-animate>
+            <div class="project-image">
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
+                Agents
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/vrathi101/gmail-mcp-server" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Gmail MCP Server</h3>
+              <p class="project-description">
+                Model Context Protocol server that lets Claude interact with Gmail via natural language. Supports drafting, sending, labeling, and managing threads through conversational commands.
+              </p>
+              <ul class="project-tech">
+                <li>FastMCP</li>
+                <li>Gmail API</li>
+                <li>OAuth2</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/vrathi101/gmail-mcp-server" target="_blank" rel="noopener noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  Code
                 </a>
               </div>
             </div>
@@ -261,43 +275,52 @@
       <div class="container">
         <header class="section-header" data-animate>
           <h2 class="section-title">Experience</h2>
-          <p class="section-subtitle">My journey so far</p>
+          <p class="section-subtitle">Where I've worked</p>
         </header>
 
         <div class="timeline" data-animate style="max-width: 700px; margin: 0 auto;">
           <div class="timeline-item">
+            <span class="timeline-date">Fall 2025</span>
+            <h3 class="timeline-title">ML Research Intern</h3>
+            <p class="timeline-company">Axiom</p>
+            <p class="timeline-description">
+              Working on multi-agent reasoning systems and RL post-training for formal theorem proving.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-date">Summer 2025</span>
+            <h3 class="timeline-title">ML Engineer Intern</h3>
+            <p class="timeline-company">MathWorks</p>
+            <p class="timeline-description">
+              Built developer tools for LLM-powered code assistance, including context management and conversation memory systems.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-date">2025</span>
+            <h3 class="timeline-title">Research Contributor</h3>
+            <p class="timeline-company">Nvidia Math Reasoning Team</p>
+            <p class="timeline-description">
+              Contributed to research on teaching reasoning capabilities to language models through minimal supervision approaches.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-date">Summer 2024</span>
+            <h3 class="timeline-title">ML Engineer Intern</h3>
+            <p class="timeline-company">AviaryAI (YC S22)</p>
+            <p class="timeline-description">
+              Worked on voice AI systems including model fine-tuning, speech processing, and document parsing pipelines.
+            </p>
+          </div>
+
+          <div class="timeline-item">
             <span class="timeline-date">2024 - Present</span>
-            <h3 class="timeline-title">Research Position</h3>
-            <p class="timeline-company">Lab/Company Name @ University</p>
+            <h3 class="timeline-title">Undergraduate Researcher</h3>
+            <p class="timeline-company">Crowd Dynamics Lab @ UIUC</p>
             <p class="timeline-description">
-              Description of your research work, responsibilities, and any notable achievements or publications.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-date">2023 - 2024</span>
-            <h3 class="timeline-title">Teaching Assistant</h3>
-            <p class="timeline-company">Course Name @ UIUC</p>
-            <p class="timeline-description">
-              Brief description of your teaching responsibilities, the course content, and any improvements you made to the curriculum or student experience.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-date">Summer 2023</span>
-            <h3 class="timeline-title">Software Engineering Intern</h3>
-            <p class="timeline-company">Company Name</p>
-            <p class="timeline-description">
-              Description of your internship work, the team you worked with, and the impact of your contributions.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-date">2022</span>
-            <h3 class="timeline-title">Started at UIUC</h3>
-            <p class="timeline-company">University of Illinois Urbana-Champaign</p>
-            <p class="timeline-description">
-              Began pursuing a degree in Computer Science with a focus on machine learning and artificial intelligence.
+              Research on LLM safety and interpretability, focusing on methods to identify and mitigate harmful model behaviors.
             </p>
           </div>
         </div>
@@ -308,15 +331,18 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">Built by Vedant Rathi</p>
+      <p class="footer-text">Vedant Rathi</p>
       <div class="footer-links">
         <a href="https://github.com/vrathi101" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         </a>
+        <a href="https://scholar.google.com/citations?user=uQcf8fEAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </a>
         <a href="mailto:vedantr3@illinois.edu" aria-label="Email">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </a>
-        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/vrathi101" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </div>
