@@ -1,0 +1,302 @@
+/* ===========================================
+   Animations - Keyframes & Scroll Effects
+   =========================================== */
+
+/* ===== Keyframe Definitions ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ===== Hero Animations ===== */
+
+.hero-content {
+  animation: fadeInUp 0.8s var(--easing-smooth) forwards;
+}
+
+.hero-title {
+  animation: fadeInUp 0.8s var(--easing-smooth) 0.1s forwards;
+  opacity: 0;
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.8s var(--easing-smooth) 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-tagline {
+  animation: fadeInUp 0.8s var(--easing-smooth) 0.3s forwards;
+  opacity: 0;
+}
+
+.hero .social-links {
+  animation: fadeInUp 0.8s var(--easing-smooth) 0.4s forwards;
+  opacity: 0;
+}
+
+.scroll-indicator {
+  animation: fadeIn 1s var(--easing-smooth) 1s forwards;
+  opacity: 0;
+}
+
+/* ===== Scroll Animation Classes ===== */
+
+/* Initial hidden state */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--easing-smooth),
+              transform 0.6s var(--easing-smooth);
+}
+
+[data-animate="fade"] {
+  transform: none;
+}
+
+[data-animate="scale"] {
+  transform: scale(0.95);
+}
+
+[data-animate="slide-left"] {
+  transform: translateX(-30px);
+}
+
+[data-animate="slide-right"] {
+  transform: translateX(30px);
+}
+
+/* Visible state */
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0) scale(1) translateX(0);
+}
+
+/* Stagger delays for children */
+[data-stagger] > *:nth-child(1) { transition-delay: 0ms; }
+[data-stagger] > *:nth-child(2) { transition-delay: 75ms; }
+[data-stagger] > *:nth-child(3) { transition-delay: 150ms; }
+[data-stagger] > *:nth-child(4) { transition-delay: 225ms; }
+[data-stagger] > *:nth-child(5) { transition-delay: 300ms; }
+[data-stagger] > *:nth-child(6) { transition-delay: 375ms; }
+
+/* ===== Gradient Text Animation ===== */
+
+.gradient-text {
+  background: var(--gradient-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-tertiary),
+    var(--accent-primary)
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ===== Timeline Animation ===== */
+
+.timeline.visible::before {
+  animation: lineGrow 1.5s var(--easing-smooth) forwards;
+}
+
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s var(--easing-smooth),
+              transform 0.5s var(--easing-smooth);
+}
+
+.timeline.visible .timeline-item:nth-child(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+.timeline.visible .timeline-item:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.4s;
+}
+.timeline.visible .timeline-item:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.6s;
+}
+.timeline.visible .timeline-item:nth-child(4) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
+}
+.timeline.visible .timeline-item:nth-child(5) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1s;
+}
+
+/* ===== Nav Animation ===== */
+
+.nav {
+  animation: fadeInDown 0.5s var(--easing-smooth) 0.5s forwards;
+  opacity: 0;
+}
+
+/* ===== Hover Micro-interactions ===== */
+
+.hover-lift {
+  transition: transform var(--transition-base) var(--easing-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* ===== Canvas Background ===== */
+
+#particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* ===== Reduced Motion Overrides ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  .hero-content,
+  .hero-title,
+  .hero-subtitle,
+  .hero-tagline,
+  .hero .social-links,
+  .scroll-indicator,
+  .nav,
+  .timeline-item,
+  .gradient-text-animated {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .timeline.visible::before {
+    animation: none;
+    clip-path: none;
+  }
+
+  .scroll-line {
+    animation: none;
+  }
+}
