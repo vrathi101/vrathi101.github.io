@@ -1,18 +1,24 @@
 /**
- * Particle Network Background
- * Creates a subtle neural network-like visualization
+ * Interactive Particle Physics Simulation
+ * Click and drag to attract particles, creating fluid-like motion
  */
 
-class ParticleNetwork {
+class ParticlePhysics {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.particles = [];
-    this.particleCount = 60;
-    this.connectionDistance = 150;
-    this.mousePosition = { x: null, y: null };
+    this.particleCount = 120;
+    this.mouse = { x: null, y: null, isDown: false, radius: 150 };
     this.animationId = null;
     this.isRunning = false;
+
+    // Physics constants
+    this.friction = 0.98;
+    this.attractionStrength = 0.8;
+    this.returnStrength = 0.01;
+    this.maxSpeed = 8;
+    this.connectionDistance = 120;
   }
 
   init() {
@@ -37,19 +43,25 @@ class ParticleNetwork {
   createParticles() {
     this.particles = [];
     for (let i = 0; i < this.particleCount; i++) {
+      const x = Math.random() * this.canvas.width;
+      const y = Math.random() * this.canvas.height;
       this.particles.push({
-        x: Math.random() * this.canvas.width,
-        y: Math.random() * this.canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.5 + 0.2
+        x: x,
+        y: y,
+        originX: x,
+        originY: y,
+        vx: 0,
+        vy: 0,
+        radius: Math.random() * 2 + 1,
+        mass: Math.random() * 0.5 + 0.5,
+        hue: Math.random() * 60 + 220, // Blue to purple range
+        opacity: Math.random() * 0.6 + 0.3
       });
     }
   }
 
   bindEvents() {
-    // Handle resize
+    // Resize handler
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
@@ -59,16 +71,16 @@ class ParticleNetwork {
       }, 200);
     });
 
-    // Track mouse for interactive effect
-    window.addEventListener('mousemove', (e) => {
-      this.mousePosition.x = e.clientX;
-      this.mousePosition.y = e.clientY;
-    });
+    // Mouse/touch events
+    this.canvas.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+    this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+    this.canvas.addEventListener('mouseup', () => this.handleMouseUp());
+    this.canvas.addEventListener('mouseleave', () => this.handleMouseUp());
 
-    window.addEventListener('mouseout', () => {
-      this.mousePosition.x = null;
-      this.mousePosition.y = null;
-    });
+    // Touch support
+    this.canvas.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+    this.canvas.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+    this.canvas.addEventListener('touchend', () => this.handleMouseUp());
 
     // Pause when tab not visible
     document.addEventListener('visibilitychange', () => {
@@ -80,51 +92,132 @@ class ParticleNetwork {
     });
   }
 
+  handleMouseDown(e) {
+    this.mouse.isDown = true;
+    this.mouse.x = e.clientX;
+    this.mouse.y = e.clientY;
+  }
+
+  handleMouseMove(e) {
+    this.mouse.x = e.clientX;
+    this.mouse.y = e.clientY;
+  }
+
+  handleMouseUp() {
+    this.mouse.isDown = false;
+  }
+
+  handleTouchStart(e) {
+    e.preventDefault();
+    this.mouse.isDown = true;
+    this.mouse.x = e.touches[0].clientX;
+    this.mouse.y = e.touches[0].clientY;
+  }
+
+  handleTouchMove(e) {
+    e.preventDefault();
+    this.mouse.x = e.touches[0].clientX;
+    this.mouse.y = e.touches[0].clientY;
+  }
+
   animate() {
     if (!this.isRunning) return;
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Update and draw particles
+    this.updateParticles();
+    this.drawConnections();
+    this.drawParticles();
+    this.drawMouseEffect();
+
+    this.animationId = requestAnimationFrame(() => this.animate());
+  }
+
+  updateParticles() {
     this.particles.forEach(p => {
+      // Calculate distance to mouse
+      if (this.mouse.x !== null) {
+        const dx = this.mouse.x - p.x;
+        const dy = this.mouse.y - p.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Mouse interaction
+        if (distance < this.mouse.radius) {
+          const force = (this.mouse.radius - distance) / this.mouse.radius;
+          const angle = Math.atan2(dy, dx);
+
+          if (this.mouse.isDown) {
+            // Attract particles when clicking
+            p.vx += Math.cos(angle) * force * this.attractionStrength * p.mass;
+            p.vy += Math.sin(angle) * force * this.attractionStrength * p.mass;
+          } else {
+            // Gentle repulsion on hover
+            p.vx -= Math.cos(angle) * force * 0.15;
+            p.vy -= Math.sin(angle) * force * 0.15;
+          }
+        }
+      }
+
+      // Return to origin (gentle spring force)
+      const dxOrigin = p.originX - p.x;
+      const dyOrigin = p.originY - p.y;
+      p.vx += dxOrigin * this.returnStrength;
+      p.vy += dyOrigin * this.returnStrength;
+
+      // Apply friction
+      p.vx *= this.friction;
+      p.vy *= this.friction;
+
+      // Limit speed
+      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (speed > this.maxSpeed) {
+        p.vx = (p.vx / speed) * this.maxSpeed;
+        p.vy = (p.vy / speed) * this.maxSpeed;
+      }
+
       // Update position
       p.x += p.vx;
       p.y += p.vy;
 
-      // Wrap around edges smoothly
-      if (p.x < -10) p.x = this.canvas.width + 10;
-      if (p.x > this.canvas.width + 10) p.x = -10;
-      if (p.y < -10) p.y = this.canvas.height + 10;
-      if (p.y > this.canvas.height + 10) p.y = -10;
-
-      // Mouse interaction - gentle push
-      if (this.mousePosition.x !== null) {
-        const dx = p.x - this.mousePosition.x;
-        const dy = p.y - this.mousePosition.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          const force = (100 - dist) / 100 * 0.02;
-          p.vx += (dx / dist) * force;
-          p.vy += (dy / dist) * force;
-        }
+      // Boundary bounce
+      if (p.x < 0 || p.x > this.canvas.width) {
+        p.vx *= -0.5;
+        p.x = Math.max(0, Math.min(this.canvas.width, p.x));
       }
+      if (p.y < 0 || p.y > this.canvas.height) {
+        p.vy *= -0.5;
+        p.y = Math.max(0, Math.min(this.canvas.height, p.y));
+      }
+    });
+  }
 
-      // Limit velocity
-      const maxVel = 0.5;
-      p.vx = Math.max(-maxVel, Math.min(maxVel, p.vx));
-      p.vy = Math.max(-maxVel, Math.min(maxVel, p.vy));
+  drawParticles() {
+    this.particles.forEach(p => {
+      // Calculate glow based on velocity
+      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      const glowIntensity = Math.min(speed / 3, 1);
+
+      // Draw glow
+      if (glowIntensity > 0.1) {
+        const gradient = this.ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, p.radius * 4
+        );
+        gradient.addColorStop(0, `hsla(${p.hue}, 80%, 60%, ${glowIntensity * 0.3})`);
+        gradient.addColorStop(1, 'transparent');
+
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, p.radius * 4, 0, Math.PI * 2);
+        this.ctx.fillStyle = gradient;
+        this.ctx.fill();
+      }
 
       // Draw particle
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
+      this.ctx.fillStyle = `hsla(${p.hue}, 70%, 65%, ${p.opacity})`;
       this.ctx.fill();
     });
-
-    // Draw connections
-    this.drawConnections();
-
-    this.animationId = requestAnimationFrame(() => this.animate());
   }
 
   drawConnections() {
@@ -135,34 +228,45 @@ class ParticleNetwork {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.connectionDistance) {
-          const opacity = (1 - distance / this.connectionDistance) * 0.15;
+          const opacity = (1 - distance / this.connectionDistance) * 0.2;
+
+          // Calculate average hue for connection color
+          const avgHue = (this.particles[i].hue + this.particles[j].hue) / 2;
+
           this.ctx.beginPath();
           this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
           this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-          this.ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
+          this.ctx.strokeStyle = `hsla(${avgHue}, 60%, 55%, ${opacity})`;
           this.ctx.lineWidth = 1;
           this.ctx.stroke();
         }
       }
     }
+  }
 
-    // Draw connections to mouse
-    if (this.mousePosition.x !== null) {
-      this.particles.forEach(p => {
-        const dx = p.x - this.mousePosition.x;
-        const dy = p.y - this.mousePosition.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+  drawMouseEffect() {
+    if (this.mouse.x === null || this.mouse.y === null) return;
 
-        if (distance < this.connectionDistance * 1.5) {
-          const opacity = (1 - distance / (this.connectionDistance * 1.5)) * 0.2;
-          this.ctx.beginPath();
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(this.mousePosition.x, this.mousePosition.y);
-          this.ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-          this.ctx.lineWidth = 1;
-          this.ctx.stroke();
-        }
-      });
+    if (this.mouse.isDown) {
+      // Draw attraction field
+      const gradient = this.ctx.createRadialGradient(
+        this.mouse.x, this.mouse.y, 0,
+        this.mouse.x, this.mouse.y, this.mouse.radius
+      );
+      gradient.addColorStop(0, 'rgba(99, 102, 241, 0.15)');
+      gradient.addColorStop(0.5, 'rgba(139, 92, 246, 0.08)');
+      gradient.addColorStop(1, 'transparent');
+
+      this.ctx.beginPath();
+      this.ctx.arc(this.mouse.x, this.mouse.y, this.mouse.radius, 0, Math.PI * 2);
+      this.ctx.fillStyle = gradient;
+      this.ctx.fill();
+
+      // Draw center point
+      this.ctx.beginPath();
+      this.ctx.arc(this.mouse.x, this.mouse.y, 4, 0, Math.PI * 2);
+      this.ctx.fillStyle = 'rgba(139, 92, 246, 0.6)';
+      this.ctx.fill();
     }
   }
 
@@ -187,4 +291,4 @@ class ParticleNetwork {
 }
 
 // Export for use in main.js
-window.ParticleNetwork = ParticleNetwork;
+window.ParticleNetwork = ParticlePhysics;
