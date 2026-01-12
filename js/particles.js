@@ -8,17 +8,18 @@ class ParticlePhysics {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.particles = [];
-    this.particleCount = 120;
+    this.particleCount = 250;
     this.mouse = { x: null, y: null, isDown: false, radius: 150 };
     this.animationId = null;
     this.isRunning = false;
 
     // Physics constants
     this.friction = 0.98;
-    this.attractionStrength = 0.8;
+    this.attractionStrength = 1.2;
     this.returnStrength = 0.01;
     this.maxSpeed = 8;
-    this.connectionDistance = 120;
+    this.connectionDistance = 150;
+    this.ambientForce = 0.02;
   }
 
   init() {
@@ -52,10 +53,11 @@ class ParticlePhysics {
         originY: y,
         vx: 0,
         vy: 0,
-        radius: Math.random() * 2 + 1,
+        radius: Math.random() * 2.5 + 1.5, // Larger particles: 1.5-4px
         mass: Math.random() * 0.5 + 0.5,
         hue: Math.random() * 60 + 220, // Blue to purple range
-        opacity: Math.random() * 0.6 + 0.3
+        opacity: Math.random() * 0.5 + 0.5, // Brighter: 0.5-1.0
+        phase: Math.random() * Math.PI * 2 // For ambient motion
       });
     }
   }
@@ -134,7 +136,15 @@ class ParticlePhysics {
   }
 
   updateParticles() {
+    const time = Date.now() * 0.001; // Time in seconds for ambient motion
+    
     this.particles.forEach(p => {
+      // Ambient motion - gentle floating effect
+      const ambientX = Math.sin(time * 0.5 + p.phase) * this.ambientForce;
+      const ambientY = Math.cos(time * 0.3 + p.phase) * this.ambientForce;
+      p.vx += ambientX;
+      p.vy += ambientY;
+      
       // Calculate distance to mouse
       if (this.mouse.x !== null) {
         const dx = this.mouse.x - p.x;
@@ -147,13 +157,13 @@ class ParticlePhysics {
           const angle = Math.atan2(dy, dx);
 
           if (this.mouse.isDown) {
-            // Attract particles when clicking
+            // Attract particles when clicking - stronger force
             p.vx += Math.cos(angle) * force * this.attractionStrength * p.mass;
             p.vy += Math.sin(angle) * force * this.attractionStrength * p.mass;
           } else {
-            // Gentle repulsion on hover
-            p.vx -= Math.cos(angle) * force * 0.15;
-            p.vy -= Math.sin(angle) * force * 0.15;
+            // Stronger repulsion on hover
+            p.vx -= Math.cos(angle) * force * 0.3;
+            p.vy -= Math.sin(angle) * force * 0.3;
           }
         }
       }
@@ -195,27 +205,28 @@ class ParticlePhysics {
     this.particles.forEach(p => {
       // Calculate glow based on velocity
       const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-      const glowIntensity = Math.min(speed / 3, 1);
+      const glowIntensity = Math.min(speed / 2, 1); // More sensitive glow
 
-      // Draw glow
-      if (glowIntensity > 0.1) {
-        const gradient = this.ctx.createRadialGradient(
-          p.x, p.y, 0,
-          p.x, p.y, p.radius * 4
-        );
-        gradient.addColorStop(0, `hsla(${p.hue}, 80%, 60%, ${glowIntensity * 0.3})`);
-        gradient.addColorStop(1, 'transparent');
+      // Draw glow - always visible with base glow
+      const baseGlow = 0.15;
+      const totalGlow = baseGlow + (glowIntensity * 0.5);
+      const gradient = this.ctx.createRadialGradient(
+        p.x, p.y, 0,
+        p.x, p.y, p.radius * 6
+      );
+      gradient.addColorStop(0, `hsla(${p.hue}, 85%, 65%, ${totalGlow})`);
+      gradient.addColorStop(0.5, `hsla(${p.hue}, 85%, 65%, ${totalGlow * 0.5})`);
+      gradient.addColorStop(1, 'transparent');
 
-        this.ctx.beginPath();
-        this.ctx.arc(p.x, p.y, p.radius * 4, 0, Math.PI * 2);
-        this.ctx.fillStyle = gradient;
-        this.ctx.fill();
-      }
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.radius * 6, 0, Math.PI * 2);
+      this.ctx.fillStyle = gradient;
+      this.ctx.fill();
 
       // Draw particle
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `hsla(${p.hue}, 70%, 65%, ${p.opacity})`;
+      this.ctx.fillStyle = `hsla(${p.hue}, 80%, 70%, ${p.opacity})`;
       this.ctx.fill();
     });
   }
@@ -228,7 +239,7 @@ class ParticlePhysics {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.connectionDistance) {
-          const opacity = (1 - distance / this.connectionDistance) * 0.2;
+          const opacity = (1 - distance / this.connectionDistance) * 0.35; // Brighter connections
 
           // Calculate average hue for connection color
           const avgHue = (this.particles[i].hue + this.particles[j].hue) / 2;
@@ -236,8 +247,8 @@ class ParticlePhysics {
           this.ctx.beginPath();
           this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
           this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-          this.ctx.strokeStyle = `hsla(${avgHue}, 60%, 55%, ${opacity})`;
-          this.ctx.lineWidth = 1;
+          this.ctx.strokeStyle = `hsla(${avgHue}, 70%, 60%, ${opacity})`;
+          this.ctx.lineWidth = 1.5;
           this.ctx.stroke();
         }
       }
@@ -248,13 +259,14 @@ class ParticlePhysics {
     if (this.mouse.x === null || this.mouse.y === null) return;
 
     if (this.mouse.isDown) {
-      // Draw attraction field
+      // Draw attraction field - brighter and more visible
       const gradient = this.ctx.createRadialGradient(
         this.mouse.x, this.mouse.y, 0,
         this.mouse.x, this.mouse.y, this.mouse.radius
       );
-      gradient.addColorStop(0, 'rgba(99, 102, 241, 0.15)');
-      gradient.addColorStop(0.5, 'rgba(139, 92, 246, 0.08)');
+      gradient.addColorStop(0, 'rgba(99, 102, 241, 0.3)');
+      gradient.addColorStop(0.3, 'rgba(139, 92, 246, 0.2)');
+      gradient.addColorStop(0.7, 'rgba(139, 92, 246, 0.1)');
       gradient.addColorStop(1, 'transparent');
 
       this.ctx.beginPath();
@@ -262,11 +274,18 @@ class ParticlePhysics {
       this.ctx.fillStyle = gradient;
       this.ctx.fill();
 
-      // Draw center point
+      // Draw center point - larger and more visible
       this.ctx.beginPath();
-      this.ctx.arc(this.mouse.x, this.mouse.y, 4, 0, Math.PI * 2);
-      this.ctx.fillStyle = 'rgba(139, 92, 246, 0.6)';
+      this.ctx.arc(this.mouse.x, this.mouse.y, 6, 0, Math.PI * 2);
+      this.ctx.fillStyle = 'rgba(139, 92, 246, 0.8)';
       this.ctx.fill();
+      
+      // Draw outer ring for center point
+      this.ctx.beginPath();
+      this.ctx.arc(this.mouse.x, this.mouse.y, 8, 0, Math.PI * 2);
+      this.ctx.strokeStyle = 'rgba(139, 92, 246, 0.6)';
+      this.ctx.lineWidth = 2;
+      this.ctx.stroke();
     }
   }
 
