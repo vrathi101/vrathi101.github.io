@@ -3,12 +3,12 @@
    =========================================== */
 
 :root {
-  /* Background layers - darkest to lighter */
+  /* Background layers - darkest to lighter (will be interpolated) */
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
   --bg-tertiary: #1a1a24;
 
-  /* Text hierarchy */
+  /* Text hierarchy (will be interpolated) */
   --text-primary: #f0f0f5;
   --text-secondary: #a0a0b0;
   --text-muted: #606070;
@@ -19,7 +19,7 @@
   --accent-tertiary: #4FB6C8;  /* post-training: calmer cyan (less neon) */
   --accent-quaternary: #56B88A; /* inference: muted teal-green */
 
-  /* Semantic */
+  /* Semantic (will be interpolated) */
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(99, 102, 241, 0.3);
 
@@ -94,4 +94,23 @@
   --z-fixed: 300;
   --z-modal: 400;
   --z-tooltip: 500;
+
+  /* Day/Night mode - will be interpolated via JavaScript */
+  /* Night mode (default) */
+  --bg-primary-night: #0a0a0f;
+  --bg-secondary-night: #12121a;
+  --bg-tertiary-night: #1a1a24;
+  --text-primary-night: #f0f0f5;
+  --text-secondary-night: #a0a0b0;
+  --text-muted-night: #606070;
+  --border-night: rgba(255, 255, 255, 0.08);
+  
+  /* Day mode */
+  --bg-primary-day: #f5f5fa;
+  --bg-secondary-day: #ffffff;
+  --bg-tertiary-day: #f0f0f5;
+  --text-primary-day: #0a0a0f;
+  --text-secondary-day: #404050;
+  --text-muted-day: #808090;
+  --border-day: rgba(0, 0, 0, 0.1);
 }
