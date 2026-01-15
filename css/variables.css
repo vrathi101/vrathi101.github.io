@@ -14,9 +14,10 @@
   --text-muted: #606070;
 
   /* Accent colors - AI/ML aesthetic */
-  --accent-primary: #6366f1;    /* Indigo */
-  --accent-secondary: #8b5cf6;  /* Purple */
-  --accent-tertiary: #06b6d4;   /* Cyan */
+  --accent-primary: #6060E0;    /* your deep learning blue (close to what you have) */
+  --accent-secondary: #8050E0;  /* your interpretability purple */
+  --accent-tertiary: #4FB6C8;  /* post-training: calmer cyan (less neon) */
+  --accent-quaternary: #56B88A; /* inference: muted teal-green */
 
   /* Semantic */
   --border: rgba(255, 255, 255, 0.08);

@@ -44,13 +44,13 @@
         <h1 class="hero-title">Vedant Rathi</h1>
 
         <p class="hero-subtitle" style="font-size: var(--text-xl); color: var(--text-secondary); margin-top: var(--space-4);">
-          CS + Math @ <span class="gradient-text">UIUC</span>
+          CS @ <span class="gradient-text">UIUC</span>
         </p>
 
         <p class="hero-tagline" style="font-size: var(--text-lg); color: var(--text-muted); margin-top: var(--space-6); max-width: 500px; text-align: center;">
-          Interested in <em style="color: var(--accent-primary); font-style: normal;">interpretability</em>,
-          <em style="color: var(--accent-secondary); font-style: normal;">reasoning</em>, and
-          <em style="color: var(--accent-tertiary); font-style: normal;">RL post-training</em>
+          Passionate about <em style="color: var(--accent-primary); font-style: normal;">deep learning</em>, especially <em style="color: var(--accent-secondary); font-style: normal;">interpretability</em>,
+          <em style="color: var(--accent-tertiary); font-style: normal;">post-training</em>, and
+          <em style="color: var(--accent-quaternary); font-style: normal;">inference</em> for LLMs.
         </p>
 
         <div class="social-links" style="margin-top: var(--space-10);">
@@ -60,7 +60,7 @@
           </a>
           <a href="https://scholar.google.com/citations?user=uQcf8fEAAAAJ" class="social-link" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            Scholar
+            GScholar
           </a>
           <a href="mailto:vedantr3@illinois.edu" class="social-link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -98,7 +98,7 @@
             </div>
             <h3 class="card-title">Breaking Bad Tokens</h3>
             <p class="card-description" style="margin-bottom: var(--space-3);">
-              Detoxifying LLMs using sparse autoencoders and interpretability-driven interventions. We decompose black-box models to identify and suppress toxic features while preserving coherence.
+              Detoxifying LLMs using sparse autoencoders and interpretability-driven interventions. We decompose black-box models like GPT and Gemma to identify and suppress toxic features while preserving coherence.
             </p>
             <p style="font-size: var(--text-xs); color: var(--accent-primary); font-family: var(--font-mono);">EMNLP 2025</p>
             <div class="project-links" style="margin-top: var(--space-3);">
@@ -116,9 +116,9 @@
             </div>
             <h3 class="card-title">Teaching Reasoning to LLMs</h3>
             <p class="card-description" style="margin-bottom: var(--space-3);">
-              Studying the challenges of inducing reasoning capabilities in language models without RL or distillation. Contributed human-authored chain-of-thought solutions for contest math problems.
+              Investigated inducing LLM reasoning without RL or distillation; contributed to a released human-authored chain-of-thought dataset for contest math, used for SFT.
             </p>
-            <p style="font-size: var(--text-xs); color: var(--accent-primary); font-family: var(--font-mono);">ICML 2025 Workshop</p>
+            <p style="font-size: var(--text-xs); color: var(--accent-primary); font-family: var(--font-mono);">ICML AI4Math 2025 Workshop</p>
             <div class="project-links" style="margin-top: var(--space-3);">
               <a href="https://arxiv.org/abs/2507.09850" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -149,7 +149,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" style="background: var(--bg-secondary);">
+    <section id="projects">
       <div class="container">
         <header class="section-header" data-animate>
           <h2 class="section-title">Projects</h2>
@@ -159,14 +159,6 @@
         <div class="grid grid-2" data-stagger style="gap: var(--space-8);">
           <!-- Project 1: Predictive Concept Decoders -->
           <article class="project-card" data-animate>
-            <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
-                Interpretability
-              </div>
-              <div class="project-overlay">
-                <a href="https://github.com/vrathi101/Predictive-Concept-Decoders" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
             <div class="project-content">
               <h3 class="project-title">Predictive Concept Decoders</h3>
               <p class="project-description">
@@ -188,14 +180,6 @@
 
           <!-- Project 2: CycleGAN -->
           <article class="project-card" data-animate>
-            <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
-                Generative
-              </div>
-              <div class="project-overlay">
-                <a href="https://github.com/vrathi101/cyclegan-style-transfer" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
             <div class="project-content">
               <h3 class="project-title">CycleGAN Style Transfer</h3>
               <p class="project-description">
@@ -217,14 +201,6 @@
 
           <!-- Project 3: LyricSearch -->
           <article class="project-card" data-animate>
-            <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
-                RAG
-              </div>
-              <div class="project-overlay">
-                <a href="https://github.com/vrathi101/LyricSearch" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
             <div class="project-content">
               <h3 class="project-title">LyricSearch</h3>
               <p class="project-description">
@@ -246,14 +222,6 @@
 
           <!-- Project 4: Gmail MCP -->
           <article class="project-card" data-animate>
-            <div class="project-image">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), var(--bg-primary)); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
-                Agents
-              </div>
-              <div class="project-overlay">
-                <a href="https://github.com/vrathi101/gmail-mcp-server" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
             <div class="project-content">
               <h3 class="project-title">Gmail MCP Server</h3>
               <p class="project-description">
@@ -290,7 +258,7 @@
             <h3 class="timeline-title">ML Research Intern</h3>
             <p class="timeline-company">Axiom</p>
             <p class="timeline-description">
-              Working on multi-agent reasoning systems and RL post-training for formal theorem proving.
+              Worked on building multi-agent reasoning systems and improving RL post-training for formal theorem proving.
             </p>
           </div>
 
@@ -299,13 +267,13 @@
             <h3 class="timeline-title">ML Engineer Intern</h3>
             <p class="timeline-company">MathWorks</p>
             <p class="timeline-description">
-              Built developer tools for LLM-powered code assistance, including context management and conversation memory systems.
+              Engineered a MATLAB coding assistant with a slash-command interface + MCP tool servers, implementing structured tool-calls (e.g., codebase search, doc retrieval, run/verify) for reliable multi-step workflows.
             </p>
           </div>
 
           <div class="timeline-item">
-            <span class="timeline-date">2025</span>
-            <h3 class="timeline-title">Research Contributor</h3>
+            <span class="timeline-date">Spring 2025</span>
+            <h3 class="timeline-title">Student Researcher</h3>
             <p class="timeline-company">Nvidia Math Reasoning Team</p>
             <p class="timeline-description">
               Contributed to research on teaching reasoning capabilities to language models through minimal supervision approaches.
@@ -317,13 +285,13 @@
             <h3 class="timeline-title">ML Engineer Intern</h3>
             <p class="timeline-company">AviaryAI (YC S22)</p>
             <p class="timeline-description">
-              Worked on voice AI systems including model fine-tuning, speech processing, and document parsing pipelines.
+              Fine-tuned LLMs to steer voice-agent persona consistency and style; built OCR-driven pipelines to extract and structure insurance documents for automation.
             </p>
           </div>
 
           <div class="timeline-item">
             <span class="timeline-date">2024 - Present</span>
-            <h3 class="timeline-title">Undergraduate Researcher</h3>
+            <h3 class="timeline-title">Student Researcher</h3>
             <p class="timeline-company">Crowd Dynamics Lab @ UIUC</p>
             <p class="timeline-description">
               Research on LLM safety and interpretability, focusing on methods to identify and mitigate harmful model behaviors.
