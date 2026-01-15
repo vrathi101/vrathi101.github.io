@@ -73,16 +73,17 @@ class ParticlePhysics {
       }, 200);
     });
 
-    // Mouse/touch events
-    this.canvas.addEventListener('mousedown', (e) => this.handleMouseDown(e));
-    this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-    this.canvas.addEventListener('mouseup', () => this.handleMouseUp());
-    this.canvas.addEventListener('mouseleave', () => this.handleMouseUp());
+    // Mouse/touch events (listen on window, not canvas)
+    window.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+    window.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+    window.addEventListener('mouseup', () => this.handleMouseUp());
+    window.addEventListener('mouseleave', () => this.handleMouseUp());
 
     // Touch support
-    this.canvas.addEventListener('touchstart', (e) => this.handleTouchStart(e));
-    this.canvas.addEventListener('touchmove', (e) => this.handleTouchMove(e));
-    this.canvas.addEventListener('touchend', () => this.handleMouseUp());
+    window.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: false });
+    window.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
+    window.addEventListener('touchend', () => this.handleMouseUp());
+
 
     // Pause when tab not visible
     document.addEventListener('visibilitychange', () => {
