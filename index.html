@@ -157,7 +157,49 @@
         </header>
 
         <div class="grid grid-2" data-stagger style="gap: var(--space-8);">
-          <!-- Project 1: Predictive Concept Decoders -->
+          <!-- Project 1: Tiny KV Cache -->
+          <article class="project-card" data-animate>
+            <div class="project-content">
+              <h3 class="project-title">Tiny KV Cache</h3>
+              <p class="project-description">
+                Embedded key-value store in C++20 with an append-only write-ahead log and on-disk snapshots. Implements thread-safe in-memory state via sharded hash maps with WAL replay for crash recovery.
+              </p>
+              <ul class="project-tech">
+                <li>C++</li>
+                <li>Threading</li>
+                <li>File I/O</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/vrathi101/TinyKV" target="_blank" rel="noopener noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  <strong>Code</strong>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Mini Inference Engine -->
+          <article class="project-card" data-animate>
+            <div class="project-content">
+              <h3 class="project-title">Mini Inference Engine</h3>
+              <p class="project-description">
+                Load-balanced, multi-container inference serving system for running small language models with real-time token streaming over gRPC. Routes requests using load balancer with live metrics and manages Dockerized worker fleets.
+              </p>
+              <ul class="project-tech">
+                <li>Docker</li>
+                <li>gRPC</li>
+                <li>Inference</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/vrathi101/mini-inference-server" target="_blank" rel="noopener noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  <strong>Code</strong>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Predictive Concept Decoders -->
           <article class="project-card" data-animate>
             <div class="project-content">
               <h3 class="project-title">Predictive Concept Decoders</h3>
@@ -183,7 +225,7 @@
             <div class="project-content">
               <h3 class="project-title">CycleGAN Style Transfer</h3>
               <p class="project-description">
-                From-scratch CycleGAN implementation for unpaired image-to-image translation. Converts photos to Monet-style paintings and back, using 6 residual blocks for faster training.
+                From-scratch CycleGAN implementation for unpaired image-to-image translation. Converts photos to Monet-style paintings and back, trained for 5 epochs on P100s.
               </p>
               <ul class="project-tech">
                 <li>PyTorch</li>
