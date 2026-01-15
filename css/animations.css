@@ -13,6 +13,17 @@
   }
 }
 
+@keyframes fadeInDownCentered {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -242,7 +253,7 @@
 /* ===== Nav Animation ===== */
 
 .nav {
-  animation: fadeInDown 0.5s var(--easing-smooth) 0.5s forwards;
+  animation: fadeInDownCentered 0.5s var(--easing-smooth) 0.5s forwards;
   opacity: 0;
 }
 
