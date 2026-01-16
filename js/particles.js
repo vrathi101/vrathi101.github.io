@@ -8,11 +8,12 @@ class ParticlePhysics {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.particles = [];
-    this.particleCount = 250;
+    // Reduce particle count on mobile for better performance
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    this.particleCount = this.isMobile ? 100 : 250;
     this.mouse = { x: null, y: null, isDown: false, radius: 150 };
     this.animationId = null;
     this.isRunning = false;
-    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     // Physics constants
     this.friction = 0.98;
@@ -40,6 +41,9 @@ class ParticlePhysics {
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
+    // Re-check mobile status on resize (in case of device rotation)
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    this.particleCount = this.isMobile ? 100 : 250;
   }
 
   createParticles() {
