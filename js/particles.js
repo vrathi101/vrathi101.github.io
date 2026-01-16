@@ -12,6 +12,7 @@ class ParticlePhysics {
     this.mouse = { x: null, y: null, isDown: false, radius: 150 };
     this.animationId = null;
     this.isRunning = false;
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     // Physics constants
     this.friction = 0.98;
@@ -79,9 +80,9 @@ class ParticlePhysics {
     window.addEventListener('mouseup', () => this.handleMouseUp());
     window.addEventListener('mouseleave', () => this.handleMouseUp());
 
-    // Touch support
-    window.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: false });
-    window.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
+    // Touch support - allow scrolling, only track touch position
+    window.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+    window.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
     window.addEventListener('touchend', () => this.handleMouseUp());
 
 
@@ -111,16 +112,20 @@ class ParticlePhysics {
   }
 
   handleTouchStart(e) {
-    e.preventDefault();
-    this.mouse.isDown = true;
-    this.mouse.x = e.touches[0].clientX;
-    this.mouse.y = e.touches[0].clientY;
+    // Only track touch, don't prevent scrolling
+    if (e.touches.length > 0) {
+      this.mouse.isDown = true;
+      this.mouse.x = e.touches[0].clientX;
+      this.mouse.y = e.touches[0].clientY;
+    }
   }
 
   handleTouchMove(e) {
-    e.preventDefault();
-    this.mouse.x = e.touches[0].clientX;
-    this.mouse.y = e.touches[0].clientY;
+    // Only track touch, don't prevent scrolling
+    if (e.touches.length > 0) {
+      this.mouse.x = e.touches[0].clientX;
+      this.mouse.y = e.touches[0].clientY;
+    }
   }
 
   animate() {
