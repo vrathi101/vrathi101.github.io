@@ -3,34 +3,34 @@
    =========================================== */
 
 :root {
-  /* Background layers - darkest to lighter (will be interpolated) */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #12121a;
-  --bg-tertiary: #1a1a24;
+  /* Rustic palette - warm cream background */
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #faf8f5;
+  --bg-tertiary: #ebe6dc;
 
-  /* Text hierarchy (will be interpolated) */
-  --text-primary: #f0f0f5;
-  --text-secondary: #a0a0b0;
-  --text-muted: #606070;
+  /* Text hierarchy - brown/gray */
+  --text-primary: #3d3832;
+  --text-secondary: #5c5549;
+  --text-muted: #7a7368;
 
-  /* Accent colors - AI/ML aesthetic */
-  --accent-primary: #6060E0;    /* your deep learning blue (close to what you have) */
-  --accent-secondary: #8050E0;  /* your interpretability purple */
-  --accent-tertiary: #4FB6C8;  /* post-training: calmer cyan (less neon) */
-  --accent-quaternary: #56B88A; /* inference: muted teal-green */
+  /* Single muted accent - warm brown */
+  --accent-primary: #6b5b4f;
+  --accent-secondary: #6b5b4f;
+  --accent-tertiary: #6b5b4f;
+  --accent-quaternary: #6b5b4f;
 
-  /* Semantic (will be interpolated) */
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(99, 102, 241, 0.3);
+  /* Semantic */
+  --border: #e0d9cf;
+  --border-hover: #c4b9a8;
 
-  /* Gradients */
-  --gradient-accent: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  --gradient-text: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-  --gradient-glow: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  /* Solid accents (no gradients) */
+  --gradient-accent: var(--accent-primary);
+  --gradient-text: var(--accent-primary);
+  --gradient-glow: transparent;
 
-  /* Typography - Font families */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  /* Typography - simple, rustic */
+  --font-sans: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
 
   /* Typography - Scale (1.25 ratio) */
   --text-xs: 0.75rem;
@@ -75,11 +75,11 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+  /* Shadows - subtle */
+  --shadow-sm: 0 1px 2px rgba(61, 56, 50, 0.08);
+  --shadow-md: 0 4px 6px rgba(61, 56, 50, 0.06);
+  --shadow-lg: 0 10px 15px rgba(61, 56, 50, 0.08);
+  --shadow-glow: none;
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -94,23 +94,4 @@
   --z-fixed: 300;
   --z-modal: 400;
   --z-tooltip: 500;
-
-  /* Day/Night mode - will be interpolated via JavaScript */
-  /* Night mode (default) */
-  --bg-primary-night: #0a0a0f;
-  --bg-secondary-night: #12121a;
-  --bg-tertiary-night: #1a1a24;
-  --text-primary-night: #f0f0f5;
-  --text-secondary-night: #a0a0b0;
-  --text-muted-night: #606070;
-  --border-night: rgba(255, 255, 255, 0.08);
-  
-  /* Day mode */
-  --bg-primary-day: #f5f5fa;
-  --bg-secondary-day: #ffffff;
-  --bg-tertiary-day: #f0f0f5;
-  --text-primary-day: #0a0a0f;
-  --text-secondary-day: #404050;
-  --text-muted-day: #808090;
-  --border-day: rgba(0, 0, 0, 0.1);
 }

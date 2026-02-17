@@ -95,7 +95,7 @@ button {
 /* Selection */
 ::selection {
   background-color: var(--accent-primary);
-  color: var(--text-primary);
+  color: var(--bg-secondary);
 }
 
 /* Reduced motion */
@@ -114,6 +114,11 @@ button {
   }
 }
 
+/* Rustic lowercase for relaxed copy */
+.text-lowercase {
+  text-transform: lowercase;
+}
+
 /* Skip link for accessibility */
 .skip-link {
   position: absolute;
@@ -121,7 +126,7 @@ button {
   left: var(--space-4);
   padding: var(--space-3) var(--space-4);
   background: var(--accent-primary);
-  color: var(--text-primary);
+  color: var(--bg-secondary);
   border-radius: var(--radius-md);
   z-index: var(--z-tooltip);
   font-weight: 500;

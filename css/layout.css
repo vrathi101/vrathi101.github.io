@@ -37,7 +37,7 @@ section {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: var(--gradient-accent);
+  background: var(--accent-primary);
   border-radius: var(--radius-full);
 }
 

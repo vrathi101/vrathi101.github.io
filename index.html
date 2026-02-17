@@ -6,10 +6,10 @@
   <title>Vedant Rathi | CS @ UIUC</title>
   <meta name="description" content="Personal website of Vedant Rathi - CS student at UIUC interested in interpretability, reasoning models, and RL post-training.">
 
-  <!-- Fonts -->
+  <!-- Fonts - simple, rustic (Georgia fallback) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-  <canvas id="particle-canvas"></canvas>
   <div class="page-content">
 
   <!-- Skip Link -->
@@ -33,33 +32,20 @@
     <a href="#experience" class="nav-link">Experience</a>
   </nav>
 
-  <!-- Day/Night Mode Slider -->
-  <div class="theme-slider-container">
-    <label for="theme-slider" class="theme-slider-label" aria-label="Day/Night mode">
-      <span class="theme-icon">🌙</span>
-      <input type="range" id="theme-slider" min="0" max="100" value="0" class="theme-slider">
-      <span class="theme-icon">☀️</span>
-    </label>
-  </div>
-
   <main id="main">
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-
-      <div class="hero-content">
-        <p class="hero-greeting" style="color: var(--text-muted); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-bottom: var(--space-4);">Hello, I'm</p>
+        <p class="hero-greeting text-lowercase" style="color: var(--text-muted); font-size: var(--text-sm); letter-spacing: var(--tracking-wide); margin-bottom: var(--space-4);">hello, i'm</p>
 
         <h1 class="hero-title">Vedant Rathi</h1>
 
-        <p class="hero-subtitle" style="font-size: var(--text-xl); color: var(--text-secondary); margin-top: var(--space-4);">
-          Currently pursuing bachelor's in computer science at UIUC
+        <p class="hero-subtitle text-lowercase" style="font-size: var(--text-xl); color: var(--text-secondary); margin-top: var(--space-4);">
+          currently pursuing bachelor's in computer science at UIUC
         </p>
 
-        <p class="hero-tagline" style="font-size: var(--text-lg); color: var(--text-muted); margin-top: var(--space-6); max-width: 500px; text-align: center;">
-          Passionate about <em style="color: var(--accent-primary); font-style: normal;">deep learning</em>, especially <em style="color: var(--accent-secondary); font-style: normal;">interpretability</em>,
-          <em style="color: var(--accent-tertiary); font-style: normal;">post-training</em>, and
-          <em style="color: var(--accent-quaternary); font-style: normal;">inference</em> for LLMs.
+        <p class="hero-tagline text-lowercase" style="font-size: var(--text-lg); color: var(--text-muted); margin-top: var(--space-6); max-width: 500px; text-align: center;">
+          passionate about <em style="color: var(--accent-primary); font-style: normal;">deep learning</em>, especially interpretability, post-training, and inference for LLMs.
         </p>
 
         <div class="social-links" style="margin-top: var(--space-10);">
@@ -81,9 +67,8 @@
           </a>
         </div>
       </div>
-    </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <span>Scroll</span>
+    <div class="scroll-indicator text-lowercase" aria-hidden="true">
+      <span>scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -93,7 +78,7 @@
       <div class="container">
         <header class="section-header" data-animate>
           <h2 class="section-title">Research</h2>
-          <p class="section-subtitle">Selected publications</p>
+          <p class="section-subtitle text-lowercase">selected publications</p>
         </header>
 
         <div class="grid grid-3" data-stagger>
@@ -159,7 +144,7 @@
       <div class="container">
         <header class="section-header" data-animate>
           <h2 class="section-title">Projects</h2>
-          <p class="section-subtitle">Things I've built</p>
+          <p class="section-subtitle text-lowercase">things i've built</p>
         </header>
 
         <div class="grid grid-2" data-stagger style="gap: var(--space-8);">
@@ -296,7 +281,7 @@
       <div class="container">
         <header class="section-header" data-animate>
           <h2 class="section-title">Experience</h2>
-          <p class="section-subtitle">Where I've worked</p>
+          <p class="section-subtitle text-lowercase">where i've worked</p>
         </header>
 
         <div class="timeline" data-animate style="max-width: 700px; margin: 0 auto;">
@@ -371,7 +356,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script defer src="js/particles.js"></script>
   <script defer src="js/scroll-animations.js"></script>
   <script defer src="js/main.js"></script>
 </div>
